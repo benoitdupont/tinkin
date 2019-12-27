@@ -4,3 +4,13 @@ bin/
 
 *.iml
 .idea/
+
+# Vaadin specific stuff TODO ask if those should be really ignored by git ?
+build
+config
+node
+node_modules
+package.json
+package-lock.json
+webpack.config.js
+webpack.generated.js
