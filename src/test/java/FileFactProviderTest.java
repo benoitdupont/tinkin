@@ -1,4 +1,5 @@
 import be.ben.tinkin.Fact;
+import be.ben.tinkin.provider.FactProvider;
 import be.ben.tinkin.provider.FileFactProvider;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,8 @@ import java.nio.file.Paths;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
+ * Test the parsing of a test file against a known value inside
+ *
  * @author Benoit Dupont
  */
 class FileFactProviderTest {
@@ -20,8 +23,8 @@ class FileFactProviderTest {
     private static Path FACTS_FILE_PATH;
 
     @Test
-    void theFactFileShouldContainsTheMalazonEmpireBook() throws IOException {
-        FileFactProvider factProvider = new FileFactProvider(FACTS_FILE_PATH);
+    void theFactFileShouldContainsTheMalazonEmpireBook() {
+        FactProvider factProvider = new FileFactProvider(FACTS_FILE_PATH);
 
         assertThat(factProvider.getFacts())
                 .extracting(Fact::getText)

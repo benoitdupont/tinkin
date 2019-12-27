@@ -9,15 +9,9 @@ public class Fact {
     private final String text;
     private final String category;
 
-    // TODO vastly file specific !
-    public Fact(String line) {
-        String[] tokens = line.split(";");
-        if(tokens.length != 2){
-            throw new IllegalArgumentException("There should be only two arguments and not " + tokens.length);
-        }
-
-        this.text = tokens[0].trim();
-        this.category = tokens[1].trim();
+    public Fact(String text, String category) {
+        this.text = text;
+        this.category = category;
     }
 
     public String getText() {

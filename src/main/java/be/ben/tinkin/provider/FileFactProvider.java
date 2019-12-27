@@ -26,10 +26,19 @@ public class FileFactProvider implements FactProvider {
     public List<Fact> getFacts() {
         try (Stream<String> lines = Files.lines(filePath)){
             return lines
-                    .map(Fact::new)
+                    .map(this::fact)
                     .collect(Collectors.toList());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private Fact fact(String line) {
+        String[] tokens = line.split(";");
+        if(tokens.length != 2){
+            throw new IllegalArgumentException("There should be only two arguments and not " + tokens.length);
+        }
+
+        return new Fact(tokens[0].trim(), tokens[1].trim());
     }
 }
