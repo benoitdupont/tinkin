@@ -1,6 +1,4 @@
-_Demo project to play with interesting frameworks_
-
-_Thoughts organizer, work in progress_
+_Thoughts organizer, demo project to play with interesting frameworks and features_
 
 # Project features
 
@@ -10,28 +8,40 @@ Ideal place to demonstrate CRUD operations, UI, NoSQL store, search (elastic ?),
 
 Currently, there's a FactProvider that provide... facts from memory or file, and a Vaadin UI that display them
 
-# Wishlist
+# Technologies and frameworks to use/demonstrate
 
-MongoDB -> Neo4J ! (maybe both)
-ElasticSearch
-Rest webservice layer
-UI: Vaadin, Angular, React
-Android app
-
-# Technical features
+## Done
 
 * Java 11
 * AssertJ
 * Spring Boot
 * Vaadin
+* Spring MVC (Rest interface)
 
-# Integration
+## Wishlist
 
-Link the project with the various authentic sources and tracking:
- 
-* Amazon ?
-* Goodreads
-* Imdb
-* Linkedin
-* Betaseries
+* MongoDB -> Neo4J ! (maybe both)
+* ElasticSearch
+* Rest webservice layer
+* UI: Vaadin, Angular, React
+* Android app
+* Spring data rest ?
 
+# Features to add
+
+* Full testing layer per layer
+
+* Persistent / CRUD layer
+
+* CRUD website
+
+* CRUD mobile app
+
+* Integration with external sources: Link the project with the various authentic sources and tracking:
+  * Amazon ?
+  * Goodreads
+  * Imdb
+  * Linkedin
+  * Betaseries
+
+* Logging

@@ -2,6 +2,7 @@ package be.ben.tinkin;
 
 import be.ben.tinkin.provider.FactProvider;
 import be.ben.tinkin.provider.FileFactProvider;
+import be.ben.tinkin.provider.MemoryFactProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -28,8 +29,8 @@ public class TinkinApplication {
     }
 
     @Bean
-    FactProvider memoryFactProvider() throws IOException {
-        return new FileFactProvider(Path.of(new ClassPathResource("facts.txt").getURI()));
+    FactProvider memoryFactProvider() {
+        return new MemoryFactProvider();
     }
 
     // Yes you can insert several implementation of the same interface via a varargs ! Well played Spring

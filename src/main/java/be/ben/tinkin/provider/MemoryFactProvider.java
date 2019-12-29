@@ -2,13 +2,8 @@ package be.ben.tinkin.provider;
 
 import be.ben.tinkin.Fact;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Loads facts from memory: hardcoded constants
@@ -17,13 +12,43 @@ import java.util.stream.Stream;
  */
 public class MemoryFactProvider implements FactProvider {
 
-    private static final List<Fact> FACTS = Arrays.asList(new Fact("The witcher", "pc game"));
+    private static final List<Fact> facts = new ArrayList<>();
 
     public MemoryFactProvider() {
+        facts.add(new Fact("The Witcher", "pc game"));
+        facts.add(new Fact("Redshirts", "book"));
     }
 
     @Override
     public List<Fact> getFacts() {
-        return FACTS;
+        return facts;
+    }
+
+    @Override
+    public Fact getFactByName(String name) {
+
+        // TODO Several issues here:
+        // findAny
+        // Optional to null is maybe not the best thing to do
+        return facts.stream()
+                .filter(f -> f.getText().equals(name))
+                .findAny()
+                .orElse(null);
+    }
+
+    @Override
+    public void createFact(String name, String category) {
+        facts.add(new Fact(name, category));
+    }
+
+    @Override
+    public boolean deleteFact(String name) {
+        for (Fact fact : facts) {
+            if (fact.getText().equals(name)) {
+                facts.remove(fact);
+                return true;
+            }
+        }
+        return false;
     }
 }

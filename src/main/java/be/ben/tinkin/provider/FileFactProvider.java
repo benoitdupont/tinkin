@@ -33,6 +33,21 @@ public class FileFactProvider implements FactProvider {
         }
     }
 
+    @Override
+    public Fact getFactByName(String name) {
+        return null;
+    }
+
+    @Override
+    public void createFact(String name, String category) {
+
+    }
+
+    @Override
+    public boolean deleteFact(String name) {
+        return false;
+    }
+
     private Fact fact(String line) {
         String[] tokens = line.split(";");
         if(tokens.length != 2){
